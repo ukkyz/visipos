@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, monospace;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1100px 700px at 12% -10%, rgba(16, 185, 129, 0.16), transparent 60%),
+    radial-gradient(900px 600px at 92% 0%, rgba(56, 189, 248, 0.14), transparent 55%),
+    #05070d;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.08);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.32);
+  border-radius: 9999px;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(0%);
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0.15;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: translateY(8px) scale(0.97);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes radar {
+  0% {
+    transform: scale(0.75);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.animate-scanline {
+  animation: scanline 2.2s ease-in-out infinite;
+}
+.animate-pop-in {
+  animation: pop-in 0.22s ease-out both;
+}
+.animate-radar {
+  animation: radar 1.8s ease-out infinite;
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(9, 14, 26, 0.9));
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
+  background: #34d399;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  cursor: pointer;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+  header,
+  nav {
+    display: none !important;
+  }
+}
